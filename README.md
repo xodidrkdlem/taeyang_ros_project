@@ -1,7 +1,7 @@
 # taeyang_ros_project
 ros study.
 
-### 2022년 09월 27일 
+### 2022년 09월 27일 시작
 topic_tutorial 패키지 생성
 c언어로 퍼블리셔, 서브스크라이버 생성
 터미널로 실행
@@ -9,6 +9,12 @@ c언어로 퍼블리셔, 서브스크라이버 생성
 ### 2022년09월 28일
 python으로 퍼블리셔, 서브스크라이버 생성
 터미널로 실행
+
+topic_second 패키지 생성
+second_pub, second_sub, py_second_pub.py
+py_second_sub.py 노드 생성
+-빌드
+-실행
 
 ## ros 명령어(roscore)
 
