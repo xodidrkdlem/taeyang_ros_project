@@ -1,10 +1,10 @@
 #include "ros/ros.h"  //Ros 헤더 파일
 #include "std_msgs/String.h" //std_msgs 패키지의 String 메세지 헤더 파일
 
-void msgcallback(const std_msgs::String::ConstPtr& msg) //메세지를 받았을때 행동을 정해주는중
+void msgcallback(const std_msgs::String::ConstPtr& msg) //어떤 이벤트가 발생했을때 콜백해주는 함수.
 {
  
-    ROS_INFO("msg : %s", msg->data.c_str());  
+    ROS_INFO("msg : %s", msg->data.c_str());   //printf랑 비슷하다고 보면 됨. ==ROS INFO
 
 }
 
@@ -26,7 +26,8 @@ int main(int argc, char** argv)
     //수신되었을 경우 콜백 함수를 호출한다.
     
     ros::spin();
-    // spin을 만나면 멈춤. 계속해서 대기하면서 콜백함수를 기다림.
+    // spin을 만나면 멈춤. 계속해서 대기하면서 콜백함수를 기다림. 올때마다 돌려줌.
+    //즉 재귀함수랑 비슷.
 
     
     return 0;

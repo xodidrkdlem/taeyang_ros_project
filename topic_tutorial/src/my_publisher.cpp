@@ -11,12 +11,12 @@ int main(int argc,char**argv)
     //토픽은 (my_totic)이며, 퍼블리셔큐(queue) 사이즈는 (100)이다.
     ros::Publisher pub = nh.advertise<std_msgs::String>("my_topic",100);
 
-    ros::Rate loop_rate(10); //루프 주기를 10Hz로 설정한다. 1초에 10번진동
+    ros::Rate loop_rate(100); //루프 주기를 10Hz로 설정한다. 1초에 10번진동
 
     std_msgs::String msg;
     msg.data = "hello"; //msg의 data에 hello를 넣는다.
 
-    while (ros::ok()) //ros가 켜져있는동안 (ok하는동안) publish 한다
+    while (ros::ok()) //ros가 켜져있는동안 (ok하는동안) publish 한다 ==True
     {
         pub.publish(msg);  //pub이 msg를 퍼블리시한다.
         loop_rate.sleep(); //위에서 정한 주기에 따라 sleep한다.

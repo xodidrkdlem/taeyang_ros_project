@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(topic_tutorial)
+project(topic_tutorial)  # 패키지 이름.
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -133,8 +133,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(my_publisher src/my_publisher.cpp) #(노드이름)
-add_executable(my_subscriber src/my_subscriber.cpp) #(노드이름)
+add_executable(my_publisher src/my_publisher.cpp) #(노드이름,소스코드 파일)
+add_executable(my_subscriber src/my_subscriber.cpp) #(노드이름,소스코드 파일)
 
 
 ## Rename C++ executable without prefix
@@ -161,10 +161,10 @@ target_link_libraries(my_subscriber ${catkin_LIBRARIES})
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+ catkin_install_python(PROGRAMS
+   scripts/py_publisher.py scripts/py_subscriber.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
