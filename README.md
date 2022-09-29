@@ -1,18 +1,26 @@
 # taeyang_ros_project
-ros study.
+
 
 ### 2022년 09월 27일 시작
-topic_tutorial 패키지 생성
-c언어로 퍼블리셔, 서브스크라이버 생성
-터미널로 실행
+topic_tutorial
+- topic_tutorial 패키지 생성 (패키지 이름 설정은 마음대로)
+- my_publisher, my_subscriber 생성(.cpp파일//src안에 make)
+- 빌드
+- 실행
 
 ### 2022년09월 28일
-python으로 퍼블리셔, 서브스크라이버 생성
-터미널로 실행
 
-topic_second 패키지 생성
-second_pub, second_sub, py_second_pub.py
-py_second_sub.py 노드 생성
+topic_tutorial
+-생성된 topic_tutorial 패키지안에 scripts폴더 추가(python파일//임의 폴더(scripts)안에 make) 
+-py_publisher.py, py_subscriber.py 노드 생성
+-빌드
+-실행
+
+
+topic_second 
+-topic_second 패키지 생성
+-second_pub, second_sub, py_second_pub.py, py_second_sub.py 노드 생성(
+빌드
 -빌드
 -실행
 
