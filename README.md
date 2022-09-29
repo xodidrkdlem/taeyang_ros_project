@@ -44,3 +44,14 @@ catkin_create_pkg 패키지이름 의존성
 -publisher 노드는 메시지에 0부터 100까지 숫자를 담아서 0.25ch wnrlfh publish 한다.
 - subscriber 노드는 메시지에 담긴숫자를 출력한다.
 - 메시지에 담는 숫자는 매번 1씩 증가시키고 100에 도달하면 다시 0부터 보낸다.
+
+
+### 2022년 9월 29일
+-[msg_tutorial](./msg_tutorial)
+- msg_tutorial 패키지 생성
+- msg 디렉토리에 Mymsg.msg 생성
+- msg_publisher,
+msg_subscriber, py_msg_pub.py,
+py_msg_sub.py 노드 생성
+- 빌드
+- 실행
