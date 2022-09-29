@@ -24,7 +24,7 @@ int main(int argc, char** argv)
             pub.publish(msg);  //pub이 msg를 퍼블리시한다.
             loop_rate.sleep();
         }
-       
+                                                               //if(msg.data==101)  {msg.data = 0;} 이걸로바꿔도됨.
 
        
 
