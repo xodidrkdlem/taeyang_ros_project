@@ -24,7 +24,7 @@
 3. 빌드
 4. 실행
 
--[과제1](./과제1)
+- [과제1](./topic_test)
 topic_test 패키지를 만들고, cpp, python 중 원하는 언어를 선택하여 노드를 만든다.
 publisher 노드 1개, subscriber 노드 1개
 publisher 노드의 이름은 my_test_publisher이고 std_msgs 패키지의 Int64 메시지를 publish한다.
@@ -78,11 +78,9 @@ ex)
 -현재 위치한 작업 공간에 패키지를 생성한다.
 catkin_create_pkg 패키지이름 의존성(코드 작성 순서)
 '''bash
-    catkin_create_pkg <패키지이름> <의존성1>
-    <의존성2> ....
+    catkin_create_pkg <패키지이름> <의존성1> <의존성2> ....
 '''
 ex)
 '''bash
-    catkin_create_pkg topic_tutorial roscpp
-    rospy std_msgs
+    catkin_create_pkg topic_tutorial roscpp rospy std_msgs
 '''
