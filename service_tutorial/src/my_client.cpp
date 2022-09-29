@@ -17,8 +17,8 @@ int main(int argc, char** argv)  //이거 쓰는 이유: 프로그램 실행할 
     }    
 
     ros::NodeHandle nh;
-    //서비스 클라이언트 ()를 선언한다.
-    //서비스 이름은 ()이고 패키지()의 ()서비스 파일을 사용한다.
+    //서비스 클라이언트 (my_client)를 선언한다.
+    //서비스 이름은 (add_two_ints")이고 패키지(service_tutorial)의 (AddTwoints)서비스 파일을 사용한다.
     ros::ServiceClient my_client = nh.serviceClient<service_tutorial::AddTwoints>("add_two_ints");
     
     // 노드 실행시 입력된 변수를 서비스 요청 값의 a,b에 저장된다.

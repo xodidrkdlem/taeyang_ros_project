@@ -23,8 +23,8 @@ int main(int argc, char** argv)
     ros::NodeHandle nh;
     
     ros::ServiceServer my_server = nh.advertiseService("add_two_ints",add);  //여기서 add_two_ints는 (서비스 이름)토픽이름이라고 생각하면됨.
-                                                      //서비스 서버()를 선언한다.  서비스 이름은()이고,
-                                                      //요청이 왔을때 ()를 실행한다. ()패키지의 ()서비스 파일을 이용한다.
+                                                      //서비스 서버(my_server)를 선언한다.  서비스 이름은(add_two_ints)이고,
+                                                      //요청이 왔을때 (add)를 실행한다. (service_tutorial)패키지의 (AddTwoints)서비스 파일을 이용한다.
      ROS_INFO("Service Server Ready.");                                                 
     
     ros::spin(); //서버는 요청이 들어오는걸 항상 대기 해야되므로. 
