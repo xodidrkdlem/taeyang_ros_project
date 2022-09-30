@@ -24,7 +24,7 @@
 3. 빌드
 4. 실행
 
-- [과제1](./topic_test)
+-[과제1](./topic_test)
 topic_test 패키지를 만들고, cpp, python 중 원하는 언어를 선택하여 노드를 만든다.
 publisher 노드 1개, subscriber 노드 1개
 publisher 노드의 이름은 my_test_publisher이고 std_msgs 패키지의 Int64 메시지를 publish한다.
@@ -84,3 +84,27 @@ ex)
 '''bash
     catkin_create_pkg topic_tutorial roscpp rospy std_msgs
 '''
+
+## 과제 2
+- yh_star 패키지를 만들고 publisher 노드 1개, subscriber 노드 1개를 만든다.
+- publisher 노드의 이름은 yh_star_pub이고, yh_star_topic이라는 이름의 토픽으로 0.5초에 한번 메시지를 publish한다.
+- subscriber 노드의 이름은 yh_star_sub이고, ys_star_pub이 publish 하는 메세지를 subscribe한다.
+- yh_star_pub은 시간과 정수를 yhStarMsg 메세지에 담아 publish한다.
+- yh_star_sub은 subscribe한 메시지 안의 정수에 따라 printf()함수로 별을 출력한다.(python이면 print())
+ex)
+'''console
+1 -> *
+2 -> *
+     *
+3 -> *
+     **
+     *
+4 -> *
+     **
+     **
+     *
+5 -> *
+     **
+     ***
+     **
+     *
