@@ -21,7 +21,7 @@ int main(int argc, char** argv)  //이거 쓰는 이유: 프로그램 실행할 
     //서비스 이름은 (add_two_ints")이고 패키지(service_tutorial)의 (AddTwoints)서비스 파일을 사용한다.
     ros::ServiceClient yh_client = nh.serviceClient<yh_service::YhSrv>("command_line");
     
-    // 노드 실행시 입력된 변수를 서비스 요청 값의 a,b에 저장된다.
+    // 노드 실행시 입력된 변수를 서비스 요청 값의 a,b에 저장된다. [0]은 노드 이름의 순서.
     yh_service::YhSrv srv;
     srv.request.a = atoi(argv[1]);
     srv.request.b = atoi(argv[2]);

@@ -1,19 +1,17 @@
 #include "ros/ros.h"
-#include "yh_service/YhSrv.h"  //서비스 헤더 파일
+#include "yh_service/YhSrv.h"  
 
 
-//service 통신의 server는 요청이 왔을 때 뭘해줘야되는지 정해줘야됨.
 
-bool add(yh_service::YhSrv::Request& req,                 //서비스 요청이 있을 경우 실행되는 콜백 함수
-         yh_service::YhSrv::Response& res)                //서비스 요청은 req, 서비스 응답은 res로 설정.
-
+bool multiply(yh_service::YhSrv::Request& req,            
+         yh_service::YhSrv::Response& res)       
 {
-    res.result = req.a*req.b; //result는 Response안에 , int32 a,int32 b는 request안에 있어서 이렇게 표현
+    res.result = req.a*req.b; 
     ROS_INFO("request: a = %d, b = %d",req.a, req.b);
 
     ROS_INFO("response: result = %d", res.result);
 
-    return true; //응답을 잘했다 라는 뜻.
+    return true; 
 
 }
 
@@ -22,12 +20,12 @@ int main(int argc, char** argv)
     ros::init(argc,argv, "yh_server");
     ros::NodeHandle nh;
     
-    ros::ServiceServer yh_server = nh.advertiseService("command_line",add);  //여기서 add_two_ints는 (서비스 이름)토픽이름이라고 생각하면됨.
-                                                      //서비스 서버(my_server)를 선언한다.  서비스 이름은(add_two_ints)이고,
-                                                      //요청이 왔을때 (add)를 실행한다. (service_tutorial)패키지의 (AddTwoints)서비스 파일을 이용한다.
+    ros::ServiceServer yh_server = nh.advertiseService("command_line",multiply);  
+                                                   
+                                                    
      ROS_INFO("Service Server Ready.");                                                 
     
-    ros::spin(); //서버는 요청이 들어오는걸 항상 대기 해야되므로. 
+    ros::spin();  
     
     return 0;
 }

@@ -23,12 +23,6 @@ int main(int argc,char**argv)
         pub.publish(msg);
         cnt++;
         loop_rate.sleep();
-
-        
-
-
-         
-
     }
      return 0;    
 
