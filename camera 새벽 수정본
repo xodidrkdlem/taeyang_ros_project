@@ -1,0 +1,60 @@
+import rospy
+from yh_check.msg import YhCheck
+
+cntc = 0
+
+def taeyang():
+    rospy.init_node("yh_check_camera")
+    pub = rospy.Publisher("check_camera",YhCheck, queue_size= 10)
+
+    loop_rate = rospy.Rate(2.5)  #Hz 넣어주기.
+
+    msg = YhCheck()
+    
+    while not rospy.is_shutdown():
+        msg.data = cntc
+        pub.publish(msg)
+        cntc += 1
+        loop_rate.sleep()
+
+        if cntc/5 == 0:
+            true = "ok"
+            rospy.loginfo(f"send msg : {true}")
+        else:
+            rospy.loginfo("False")
+
+
+
+    
+
+
+def msg_talker():
+    rospy.init_node("yh_check_camera")
+    pub = rospy.Publisher("check_camera",YhCheck, queue_size= 10)
+
+    loop_rate = rospy.Rate(2.5)  #Hz 넣어주기.
+
+    msg = YhCheck()
+
+   
+
+    while not rospy.is_shutdown():
+        #Mymsg:
+        #   time stamp
+        #   int32 data
+        msg.stamp = rospy.Time.now()
+        msg.data = cntc
+        rospy.loginfo("send msg : %d", msg.stamp.secs)
+        rospy.loginfo("send msg : %d", msg.stamp.nsecs)
+        rospy.loginfo("send msg : %d", msg.data)
+
+        pub.publish(msg)
+        cntc += 1
+        loop_rate.sleep()
+
+
+if __name__ == "__main__":
+    try:
+        msg_talker()
+    except rospy.ROSInterruptException:
+            pass
