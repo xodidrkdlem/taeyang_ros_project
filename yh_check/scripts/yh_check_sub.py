@@ -3,7 +3,12 @@ from std_msgs.msg import Bool
 from yh_check.msg import YhCheck  
 from yh_check import msg_talker
 def msgCallback(msg):
-    if(cntd/4== 0):
+    
+
+ 
+    if(cntd/4 == 0)&&(cntc/5 == 0):
+        print(okay)
+   
     rospy.loginfo("msg : %d",msg.data)
 
 def my_listener():
