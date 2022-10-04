@@ -1,0 +1,26 @@
+import rospy
+from yh_check.msg import YhCheck  
+from yh_check_distance import taeyAng
+from yh_check_camera import taeyang
+
+
+def msgCallback(msg):
+    if taeyang and taeyAng:
+        rospy.loginfo("ok")
+    else:
+        False
+    
+        
+
+def my_listener():
+    rospy.init_node("yh_check_sub")
+    rospy.Subscriber("check_camera", YhCheck, msgCallback, queue_size=100)
+    rospy.Subscriber("check_distance", YhCheck, msgCallback, queue_size=100)  #토픽이름, 메세지 타입, 콜백 함수, 큐사이즈
+
+
+    rospy.spin()
+
+
+
+if __name__== "__main__":
+    my_listener()
