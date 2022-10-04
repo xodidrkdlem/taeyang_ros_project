@@ -107,3 +107,26 @@ ex)
      **
      ***
      *
+
+## Parameter server
+- ros master에서 실행되고, 변수들을 담고 있는 서버
+- ros::setParam(), ros::getParam(),  rospy.set_param(), ros.get_param() 등의 함수로 사용
+- command line에서 rosparam으로 사용가능
+- rosparam list 
+- 파라미터 서버의 모든 파라미터를 출력
+'''bash
+xodidrkdlem@naver.: ~$ rosparam list
+'''
+
+- rosparam get <파라미터 이름>
+     -파라미터의 값을 출력함
+
+'''bash
+ xodidrkdlem@ddd: ~$ rosparam get <파라미터 이름>
+ '''
+
+ - rosparam set <파라미터 이름> [파라미터 값]
+    - 파라미터의 값을 지정함
+'''bash
+xodidrkdlem@dkdkkf: ~$ rosparam set <파라미터 이름>
+'''

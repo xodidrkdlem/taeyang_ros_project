@@ -9,7 +9,7 @@ int main(int argc, char** argv)  //이거 쓰는 이유: 프로그램 실행할 
 
     //rosrun 패키지 이름 노드이름 a b
     //argv = {노드이름, a, b}
-    if (argc !=3)                           //인자 개수가 3이 아니면! 인자 개수(argc),이 코드에서 설정한 인자개
+    if(argc !=3)                           //인자 개수가 3이 아니면! 인자 개수(argc),이 코드에서 설정한 인자개
     {
         ROS_INFO("command : rosrun yh_service yh_client arg1 arg2");              
         ROS_INFO("arg1, arg2 : int32, int32 number");
