@@ -1,24 +1,33 @@
+#!/usr/bin/python             
+#-*- coding: utf-8 -*-
+
 import rospy
-from std_msgs.msg import Bool 
 from yh_check.msg import YhCheck  
-from yh_check import msg_talker
-def msgCallback(msg):
-    
 
- 
-    if(cntd/4 == 0)&&(cntc/5 == 0):
-        print(okay)
-   
-    rospy.loginfo("msg : %d",msg.data)
+class Mycheck:
+    def __init__(self):
+        self.sub_distance = rospy.Subscriber("check_distance",YhCheck,self.distanceCallback)
+        
+        self.sub_camera = rospy.Subscriber("check_camera",YhCheck,self.cameraCallback)
 
-def my_listener():
+        self.distance = True
+        self.camera = True
+        
+    def distanceCallback(self,msg):
+        self.distance = msg.data
+        if self.distance and self.camera:
+            rospy.loginfo("ok")
+
+    def cameraCallback(self,msg):
+        self.camera = msg.data
+        if self.distance and self.camera:
+            rospy.loginfo("ok")
+
+if __name__ == "__main__":
     rospy.init_node("yh_check_sub")
-    rospy.Subscriber("check_camera","check_distance", YhCheck, msgCallback, queue_size=100)  #토픽이름, 메세지 타입, 콜백 함수, 큐사이즈
-
-
+    my_check = Mycheck()
     rospy.spin()
 
 
+        
 
-if __name__== "__main__":
-    my_listener()

@@ -1,4 +1,4 @@
 time stamp   
-int32  data
+bool data
 
 

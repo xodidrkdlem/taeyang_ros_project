@@ -1,13 +1,27 @@
 #include "ros/ros.h"
-#include "yh_check/YhCheck.h" //Mymsg 메세지 헤더 파일 //빌드시 자동 생성
+#include "yh_check/YhCheck.h" 
 
 
-//void msgcallback(const std_msgs::String::ConstPtr& msg)
-void msgCallback(const yh_check::YhCheck::ConstPtr& msg)  //어디서 꺼내오는지가 바뀜.
+bool distance = true; //함수 밖에 쓴 전역변수.
+bool camera = true;
+
+void distanceCallback(const yh_check::YhCheck::ConstPtr& msg) 
 {
-    ROS_INFO("receive msg : %d", msg->stamp.sec); //msg의 stamp의 sec을 출력한다.
-    ROS_INFO("receive msg : %d", msg->stamp.nsec);//msg의 stamp의 nsec을 출력한다.
-    //msg의 data를 출력한다.
+    distance = msg->data;
+    if (distance && camera)
+    {
+        ROS_INFO("ok");
+    }
+    
+}
+
+void cameraCallback(const yh_check::YhCheck::ConstPtr& msg)
+{
+    camera = msg->data;
+    if (distance && camera)
+    {
+        ROS_INFO("ok");
+    }
 }
 
 int main(int argc, char** argv)
@@ -15,13 +29,39 @@ int main(int argc, char** argv)
     ros::init(argc,argv, "yh_check_sub");
     ros::NodeHandle nh;
 
-    ros::Subscriber sub = nh.subscribe("check_distance",30,msgCallback);
-    ros::Subscriber sub = nh.subscribe("check_camera",30,msgCallback);
+    ros::Subscriber sub_distance = nh.subscribe("check_distance",30,distanceCallback);
+    ros::Subscriber sub_camera = nh.subscribe("check_camera",30,cameraCallback);
 
-    ros::spin(); // 대기
+    ros::spin();
 
     
     return 0;
 
     
 }
+
+/*
+
+#include "ros/ros.h"
+#include "yh_check/YhCheck.h" 
+
+class Mysub                  
+{   
+    public:
+        //함수들 생성
+        Mysub(coid)             ---> 생성자 함수 = ros::init(argc,argv, "yh_connect_sub");
+        {
+            ros::Subscriber sub_distance = nh.subscribe("check_distance",30,&Mysub::distanceCallback,this);
+            ros::Subscriber sub_camera = nh.subscribe("check_camera",30,&Mysub::cameraCallback,this); -->this는 인스턴스
+        }
+    private:
+        //변수들 생성
+        ros::NodHandle nh;
+        ros::Subscriber sub_distance;
+        ros::Subscriber sub_camera;
+        bool distance = true;
+        bool camera = true;
+
+};
+
+*/
