@@ -1,7 +1,8 @@
-#!/usr/bin/python             
-#-*- coding: utf-8 -*-
+#!/usr/bin/python                                       #1.파이썬의 위치를 나타내는것.(리눅스에서 파이썬으로 ros 진행할때 꼭 써줘야됨.) 
+#-*- coding: utf-8 -*-                                  #2. 한국어 에러나지말라고 써주는것.(utf -8)
 
-#1.파이썬의 위치를 나타내는것.(리눅스에서 파이썬으로 ros 진행할때 꼭 써줘야됨.) 2. 한국어 에러나지말라고 써주는것.
+
+
 
 import rospy
 from std_msgs.msg import Int64   #스탠다드 메시지중에서 스트링이라는 메시지 쓰겠다는것.
